@@ -1,8 +1,13 @@
 '''
-Provides various utility functions.
+This file is part of the LIO SCSI Target.
 
-This file is part of RTSLib.
-Copyright (c) 2011-2013 by Datera, Inc
+Copyright (c) 2012-2014 by Datera, Inc.
+More information on www.datera.io.
+
+Original author: Jerome Martin <jxm@netiant.com>
+
+Datera and LIO are trademarks of Datera, Inc., which may be registered in some
+jurisdictions.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
@@ -443,6 +448,9 @@ def convert_scsi_hctl_to_path(host, controller, target, lun):
         if convert_scsi_path_to_hctl(path) == hctl:
             return os.path.realpath(path)
     return ''
+
+# FIXME: convert_bytes_to_human and reciprocal do not have the same semantics
+# one uses floats, the other not, and their format is different.
 
 def convert_bytes_to_human(size):
     if not size:

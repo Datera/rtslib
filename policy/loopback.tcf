@@ -1,0 +1,7 @@
+fabric {
+    loopback target @naa !lun @int !fileio #(storage fileio)
+    loopback target @naa !lun @int !iblock #(storage iblock)
+    loopback target @naa !lun @int !pscsi #(storage pscsi)
+    loopback target @naa !lun @int !rd_dr #(storage rd_dr)
+    loopback target @naa !lun @int !rd_mcp #(storage rd_mcp)
+}

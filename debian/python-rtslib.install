@@ -1,2 +1,4 @@
-lib/rtslib usr/share/python-support
-specs/*    var/target/fabric
+lib/rtslib 	usr/share/python-support
+specs/*    	var/target/fabric
+policy/*    	var/target/policy
+script/* 	usr/bin

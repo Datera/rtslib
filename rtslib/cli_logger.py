@@ -21,22 +21,28 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 '''
-# TODO Import config* here
-import utils
+import sys, logging
 
-from root import RTSRoot
-from utils import RTSLibError, RTSLibBrokenLink, RTSLibNotInCFS
+class LogFormatter(logging.Formatter):
 
-from target import LUN, MappedLUN
-from target import NodeACL, NetworkPortal, TPG, Target, FabricModule
+    default_format = "LOG%(levelno)s: %(msg)s"
+    formats = {10: "DEBUG:%(module)s:%(lineno)s: %(msg)s",
+               20: "%(msg)s",
+               30: "\n### %(msg)s\n",
+               40: "*** %(msg)s",
+               50: "CRITICAL: %(msg)s"}
 
-from tcm import FileIOBackstore, IBlockBackstore
-from tcm import FileIOStorageObject, IBlockStorageObject
-from tcm import PSCSIBackstore, RDDRBackstore, RDMCPBackstore
-from tcm import PSCSIStorageObject, RDDRStorageObject, RDMCPStorageObject
+    def __init__(self):
+        logging.Formatter.__init__(self)
 
-__version__ = 'GIT_VERSION'
-__author__ = "Jerome Martin <jxm@risingtidesystems.com>"
-__url__ = "http://www.risingtidesystems.com"
-__description__ = "API for RisingTide Systems generic SCSI target."
-__license__ = __doc__
+    def format(self, record):
+        self._fmt = self.formats.get(record.levelno, self.default_format)
+        return logging.Formatter.format(self, record) 
+
+logger = logging.getLogger("LioCli")
+logger.setLevel(logging.INFO)
+
+log_fmt = LogFormatter()
+log_handler = logging.StreamHandler(sys.stdout)
+log_handler.setFormatter(log_fmt)
+logging.root.addHandler(log_handler)

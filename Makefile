@@ -23,10 +23,18 @@ all:
 	@echo
 	@echo "  make deb         - Builds debian packages."
 	@echo "  make rpm         - Builds rpm packages."
+	@echo "  make run-tests   - Runs all tests using the repository version."
+	@echo "  make run-lio     - Runs the lio cli using the repository version."
 	@echo "  make release     - Generates the release tarball."
 	@echo
 	@echo "  make clean       - Cleanup the local repository build files."
 	@echo "  make cleanall    - Also remove dist/*"
+
+run-tests:
+	@(PYTHONPATH=$$(pwd); cd test/ ; python -m unittest discover)
+
+run-lio:
+	@(sudo PYTHONPATH=$$(pwd) ./script/lio)
 
 clean:
 	@rm -fv ${NAME}/*.pyc ${NAME}/*.html

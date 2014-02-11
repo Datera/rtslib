@@ -28,6 +28,8 @@ install: build
 	dh_testroot
 	dh_installdirs 
 	cp -R specs $(install_dir)
+	cp -R policy $(install_dir)
+	cp -R script $(install_dir)
 
 build: build-stamp
 build-stamp: 
@@ -35,7 +37,7 @@ build-stamp:
 	$(setup) build --build-base $(build_dir) install \
 		--no-compile --install-purelib $(install_dir)/lib/rtslib \
 		--install-scripts $(install_dir)/bin
-	echo "2.6, 2.7" > $(install_dir)/lib/rtslib/.version
+	echo "2.7" > $(install_dir)/lib/rtslib/.version
 	mkdir -p $(build_dir) doc
 	cd $(build_dir); epydoc --no-sourcecode --html -n $(name) \
 		--exclude configobj ../$(name)/*.py

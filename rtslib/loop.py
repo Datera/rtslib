@@ -1,8 +1,13 @@
 '''
-Implements the RTS SAS loopback classes.
+This file is part of the LIO SCSI Target.
 
-This file is part of RTSLib.
-Copyright (c) 2011-2013 by Datera, Inc
+Copyright (c) 2012-2014 by Datera, Inc.
+More information on www.datera.io.
+
+Original author: Jerome Martin <jxm@netiant.com>
+
+Datera and LIO are trademarks of Datera, Inc., which may be registered in some
+jurisdictions.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
@@ -16,7 +21,6 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 '''
-
 import re
 import os
 import glob
