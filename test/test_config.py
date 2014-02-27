@@ -20,7 +20,7 @@ class TestConfig(unittest.TestCase):
 
         tests = [("storage fileio", 'obj', 1),
                  ("storage fileio disk vm1 path /tmp/vm1.img", 'attr', 1),
-                 ("storage fileio disk vm1 size 1MB", 'attr', 1),
+                 ("storage fileio disk vm1 size 1.0MB", 'attr', 1),
                  ("storage .* disk .* .* .*", 'attr', 3)]
 
         for pattern, node_type, arity in tests:
@@ -44,7 +44,7 @@ class TestConfig(unittest.TestCase):
                  ("storage fileio disk disk1 path", None, 0),
                  ("storage fileio disk disk1 path /tmp/disk1.img", 'attr', 1),
                  ("storage fileio disk disk1 path /tmp/disk2.img", 'attr', 0),
-                 ("storage fileio disk disk1 size 1MB", 'attr', 1),
+                 ("storage fileio disk disk1 size 1.0MB", 'attr', 1),
                  ("storage fileio disk disk2 path /tmp/disk2.img", 'attr', 1),
                  ("storage .* disk .* .* .* .*", 'attr', 38),
                  ("storage .* disk .* attribute .* .*", 'attr', 38),

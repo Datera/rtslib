@@ -296,7 +296,7 @@ class Config(object):
         elif val_type == 'bytes':
             match = re.match(r'(\d+(\.\d*)?)([kKMGT]?B?$)', value)
             if match:
-                qty = match.group(1)
+                qty = str(float(match.group(1)))
                 unit = match.group(3).upper()
                 if not unit.endswith('B'):
                     unit += 'B'
