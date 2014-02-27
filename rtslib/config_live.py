@@ -250,7 +250,7 @@ def obj_attr(obj, attr):
         mults = {'K': 1024, 'M': 1024**2, 'G': 1024**3, 'T': 1024**4}
         val = float(string[:-2])
         unit = string[-2:-1]
-        valid_value = val * mults[unit]
+        valid_value = int(val * mults[unit])
     elif val_type == 'int':
         valid_value = int(string)
     elif val_type == 'ipport':
