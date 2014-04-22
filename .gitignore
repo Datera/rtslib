@@ -3,6 +3,8 @@ dpkg-buildpackage.log
 dpkg-buildpackage.version
 *.swp
 *.swo
+*~
+\#*#
 build-stamp
 build/*
 debian/files
