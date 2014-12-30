@@ -7,10 +7,8 @@ features = acls
 # Non-standard module naming scheme
 kernel_module = tcm_fc
 
-# The module uses hardware addresses from there
-wwn_from_files = /sys/class/fc_host/host*/port_name
-# Transform '0x1234567812345678' WWN notation to '12:34:56:78:12:34:56:78'
-wwn_from_files_filter = "sed -e s/0x// -e 's/../&:/g' -e s/:$//"
+# The module uses hardware addresses
+wwn_from_cmds = /var/target/fabric/probe-tcm_fc.sh
 
 # The configfs group
 configfs_group = fc
