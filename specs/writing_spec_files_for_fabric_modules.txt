@@ -106,7 +106,7 @@ case, demonstrating that you can pipe as many commands you want into another.
 Same as wwn_from_files, but instead of taking a list of file patterns, takes a
 list of shell commands. Each commands output will be considered as a list of
 WWNs to be used, separated ny line ends, spaces, tabs and null (\0)
-chararcters.
+characters.
 
 * wwn_from_cmds_filter
 Same as wwn_from_files_filter, but filters/transforms the WWNs gotten from the

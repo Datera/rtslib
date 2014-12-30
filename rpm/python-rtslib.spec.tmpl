@@ -31,6 +31,7 @@ rm -rf %{buildroot}
 %{__python} setup.py install --skip-build --root %{buildroot} --prefix usr
 mkdir -p %{buildroot}/var/target/fabric
 cp specs/*.spec %{buildroot}/var/target/fabric
+cp specs/*.sh %{buildroot}/var/target/fabric
 mkdir -p %{buildroot}/var/target/policy
 cp policy/*.lio %{buildroot}/var/target/policy
 mkdir -p %{buildroot}/usr/share/doc/python-rtslib-doc-%{version}
