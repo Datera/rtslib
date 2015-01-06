@@ -673,7 +673,7 @@ class Config(object):
         each of which will be matched against configuration objects and
         attributes. In case of dump, the pattern must be non-ambiguous and
         match only a single configuration node.
-        
+
         If the pattern matches either zero or more than one configuration
         nodes, a ConfigError exception will be raised.
         '''
