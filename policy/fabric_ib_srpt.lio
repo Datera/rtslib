@@ -1,5 +1,5 @@
 fabric ib_srpt {
-    target %srpt_wwn {
+    target %hw_wwn {
         acl %str {
             mapped_lun %int {
                 target_lun @(-3 lun)

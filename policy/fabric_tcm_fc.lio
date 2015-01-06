@@ -1,5 +1,5 @@
 fabric tcm_fc {
-    target %fc_wwn {
+    target %hw_wwn {
         acl %str {
             attribute {
                 dataout_timeout %int(3)
