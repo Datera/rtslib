@@ -22,6 +22,7 @@ import os
 import glob
 import uuid
 import shutil
+import subprocess
 
 from node import CFSNode
 from os.path import isdir
@@ -114,7 +115,14 @@ def parse_specfile(spec_file):
                                    ))
     if spec['wwn_from_cmds']:
         for wwn_cmd in spec['wwn_from_cmds']:
-            cmd_result = exec_argv(wwn_cmd, shell=True)
+            cmd = subprocess.Popen(wwn_cmd,
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE,
+                                   shell=True)
+            (cmd_result, _) = cmd.communicate()
+            cmd_result = "\n".join([line.strip()
+                                    for line in cmd_result.split("\n")
+                                    if line.strip()])
             wwns_from_cmd = [wwn for wwn in
                              re.split('\t|\0|\n| ', cmd_result)
                              if wwn.strip()]
