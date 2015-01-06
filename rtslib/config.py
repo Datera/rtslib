@@ -87,7 +87,7 @@ def sort_key(node):
     obj_classes = ConfigParser.obj_classes
     ordered_obj = {}
     for k, v in enumerate(obj_classes.split()):
-        ordered_obj[v] = "%s%s" % (k, v) 
+        ordered_obj[v] = "%s%s" % (k, v)
 
     if node_type == 'attr':
         key = ('0', node.key[0], node.key[1])
@@ -284,7 +284,7 @@ class Config(object):
                             'policy_path': policy_node.path}
                     group.set(key, data)
 
-    def validate_val(self, value, val_type, parent=None): 
+    def validate_val(self, value, val_type, parent=None):
         valid_value = None
         log.debug("validate_val(%s, %s)" % (value, val_type))
         if value == NO_VALUE:
