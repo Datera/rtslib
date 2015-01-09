@@ -167,7 +167,9 @@ class FabricModule(CFSNode):
             except:
                 pass
             else:
-                yield fabric
+                wwn_list = fabric.spec.get('wwn_list', None)
+                if wwn_list is None or wwn_list:
+                    yield fabric
 
     # FabricModule private stuff
     def __init__(self, name):
